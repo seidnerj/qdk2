@@ -137,9 +137,9 @@ class Cook(object):
                         line = line.replace(k, v)
                     fout.write(line)
             if suffix in suffix_script:
-                chmod(dest, 0755)
+                chmod(dest, '0755')
             else:
-                chmod(dest, 0644)
+                chmod(dest, '0644')
 
     def icons(self):
         debug(self._label + 'icon files')
@@ -158,7 +158,7 @@ class Cook(object):
                            Settings.DEFAULT_PACKAGE + suffix), dest)
                 continue
             copy(src, dest)
-            chmod(dest, 0644)
+            chmod(dest, '0644')
 
     def package_routines(self):
         debug(self._label + 'package_routines')
@@ -294,7 +294,7 @@ class Cook(object):
         for root, dirs, files in walk(data_root):
             fixperm = False
             if root in [pjoin(data_root, d) for d in bin_path]:
-                chmod(root, 0755)
+                chmod(root, '0755')
                 fixperm = True
             for f in files:
                 if isfile(pjoin(root, f)):

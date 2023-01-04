@@ -16,7 +16,7 @@ class CommandVersion(BaseCommand):
         parser.add_argument('--' + cls.key, help=SUPPRESS)
 
     def run(self):
-        print VERSION
+        print(VERSION)
 
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

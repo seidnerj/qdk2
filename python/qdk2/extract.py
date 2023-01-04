@@ -62,7 +62,8 @@ class CommandExtract(BaseCommand):
             makedirs(pjoin(to, 'shared'))
         data = glob(pjoin(to, 'data.*'))[0]
         try:
-            check_call(['tar', 'xvf', data, '-C', pjoin(to, 'shared')])
+            command = ['tar', 'xvf', data, '-C', pjoin(to, 'shared')]
+            check_call(command)
         except CalledProcessError as e:
             warning('Error in extracting: {}'.format(e))
 
@@ -100,7 +101,7 @@ class CommandExtract(BaseCommand):
         elif self._args.file.endswith('.qpkg'):
             self.extract_qpkg(self._args.file, directory)
         else:
-            error('Unknown file suffix. Speicify --qpkg or --image')
+            error('Unknown file suffix. Specify --qpkg or --image')
             return -1
         return 0
 

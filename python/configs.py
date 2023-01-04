@@ -2,7 +2,7 @@
 
 from os import getenv
 from os.path import join as pjoin
-import ConfigParser
+import configparser as ConfigParser
 
 from log import debug
 

@@ -110,8 +110,8 @@ class CommandCreate(BaseCommand):
             for fn in files_check:
                 fp = pjoin(self.directory, Settings.CONTROL_PATH, fn)
                 for line in fileinput.input(fp, inplace=True):
-                    print line.replace(Settings.DEFAULT_PACKAGE,
-                                       self._args.project),
+                    print (line.replace(Settings.DEFAULT_PACKAGE,
+                                       self._args.project)),
 
             # mv foobar.* to self._args.project.*
             for fn in glob(pjoin(self.directory, Settings.CONTROL_PATH,

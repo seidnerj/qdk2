@@ -36,32 +36,32 @@ class CommandInfo(BaseCommand):
         return self._qpkg_dir
 
     def print_source(self):
-        print '[Source]'
+        print('[Source]')
         for k, v in sorted(self.cfile.source.iteritems()):
-            print '  %-*s : %s' % (self._klen,
-                                   'QPKG_' + k.upper(), v)
+            print ('  %-*s : %s' % (self._klen,
+                                   'QPKG_' + k.upper(), v))
         print
 
     def print_package(self, package):
-        print '  * {}'.format(package)
+        print('  * {}'.format(package))
         for k, v in sorted(self.cfile.packages[package].iteritems()):
-            print '  %-*s : %s' % (self._klen,
-                                   'QPKG_' + k.upper(), v)
+            print('  %-*s : %s' % (self._klen,
+                                   'QPKG_' + k.upper(), v))
         print
 
     def print_all_packages(self):
-        print '[Packages]'
+        print('[Packages]')
         for k in sorted(self.cfile.packages.iterkeys()):
             self.print_package(k)
 
     def print_env(self):
         if not self._args.show_env:
             return
-        print '[Environment]'
+        print('[Environment]')
         for k, v in os.environ.iteritems():
             if k.startswith('LESS_TERMCAP_'):
                 continue
-            print '  %-*s : %s' % (self._klen, k, v)
+            print('  %-*s : %s' % (self._klen, k, v))
 
     def _prepare(self):
         self._klen = 0
